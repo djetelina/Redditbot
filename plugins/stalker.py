@@ -29,7 +29,7 @@ def login(username, password):
 	reddit.login(username, password)
  
 def stalk(username, password):
-	print "Initiating stalking."
+	print(time.strftime('%H:%M:%S Initiating stalking', time.localtime()))
 	try:
 		login(username, password)
 		for dev in devs:
@@ -39,11 +39,11 @@ def stalk(username, password):
 			h = urllib2.urlopen(req)
 			d = json.loads(h.read())
 			for p in d["data"]["children"]:
-				#Filter only a specific subreddit
+				# Filter only a specific subreddit
 				if p["data"]["subreddit_id"] == subreddit_id:
 					posts.append(p)
 		 
-		#Sort by the time the post was created
+		# Sort by the time the post was created
 		posts.sort(key=lambda p: p["data"]["created"],reverse=True)
 		
 		newcontent = ""
@@ -55,16 +55,14 @@ def stalk(username, password):
 			newcontent += "/u/%s (%s) [%s](%s) by /u/%s \n\n>%s\n\n****\n\n" % (post["data"]["author"], timestamp, post["data"]["link_title"], url, post["data"]["link_author"], post["data"]["body"].replace("\n","\n> "))
 		del posts[:]
 		reddit.edit_wiki_page(subreddit=subreddit_name, page=page, content=newcontent, reason='')
-		print(time.strftime('%H:%M:%S stalking complete', time.localtime()))
+		print(time.strftime('%H:%M:%S Stalking complete', time.localtime()))
 	except Exception as e:
 		print("Error stalking: " + str(e))
 
-# todle teoreticky nebudu pouzivat a v main skriptu bude schedule
 def stalker(username, password):
 
 	schedule.every().hour.do(stalk(username, password))
 
-	# on the startup do them both and THEN start counting time
 	stalk(username, password)
 
 	while True:

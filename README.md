@@ -1,3 +1,6 @@
 Redditbot
 =========
-Welcome to reddit bot! Feel free to add plugins, or commit changes to old ones!
+
+Welcome! Feel free to add plugins, or commit changes to old ones!
+
+Redditbot was made for /r/scrolls, feel free to use him on different subreddits.

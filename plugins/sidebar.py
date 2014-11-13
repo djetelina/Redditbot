@@ -9,9 +9,6 @@ import json
 import datetime
 import os
 
-# Bot to update ladder and streams in Scrolls subreddit sidebar
-# Usage: python r_scrolls.py reddit_user reddit_pass
-
 reddit = None
 subreddit_name = "scrolls"
 
@@ -23,7 +20,7 @@ def login(username, password):
 
     global reddit
 
-    reddit = praw.Reddit(user_agent='sidebar ladder updater for rscrolls [praw]')
+    reddit = praw.Reddit(user_agent='/r/scrolls sidebar updater [praw]')
     reddit.login(username, password)
 
 def get_description():
@@ -38,7 +35,7 @@ def update_description(new_description):
     global reddit
     global subreddit_name
 
-    print(time.strftime('%H:%M:%S sidebar update complete', time.localtime()))
+    print(time.strftime('%H:%M:%S Sidebar update complete', time.localtime()))
 
     reddit.get_subreddit(subreddit_name).update_settings(description=new_description)
 
@@ -48,6 +45,8 @@ def streams(username, password):
     rel_path = "logs/streamers.txt"
     abs_file_path = os.path.join(script_dir, rel_path)
     log = open(abs_file_path, "a")
+
+    print(time.strftime('%H:%M:%S Initiating live streams update', time.localtime()))
 
     # between 1. and 2. sentinel
     try:
@@ -97,6 +96,7 @@ def streams(username, password):
 
 def ladder(username, password):
     # between 3. and 4. sentinel
+    print(time.strftime('%H:%M:%S Initiating ladder update', time.localtime()))
     try:
         login(username, password)
         old_description = get_description()
@@ -144,7 +144,6 @@ def sidebar(username, password):
     schedule.every(5).minutes.do(streams(username, password))
     schedule.every().hour.do(ladder(username, password))
 
-    # on the startup do them both and THEN start counting time
     streams(username, password)
     print("--- Waiting 30s for Reddit to update its description")
     time.sleep(30)
