@@ -52,7 +52,7 @@ def stalk(username, password):
 			thread_id = post["data"]["link_id"][3:]
 			comment_id = post["data"]["id"]
 			url = "http://www.reddit.com/r/%s/comments/%s//%s?context=3" % (subreddit_name,thread_id,comment_id)
-			newcontent += "/u/%s (%s) [%s](%s) by /u/%s \n\n>%s\n\n****\n\n" % (post["data"]["author"], timestamp, post["data"]["link_title"], url, post["data"]["link_author"], post["data"]["body"].replace("\n","\n> "))
+			newcontent += "[](/mojang) /u/%s (%s) [%s](%s) by /u/%s \n\n>%s\n\n****\n\n" % (post["data"]["author"], timestamp, post["data"]["link_title"], url, post["data"]["link_author"], post["data"]["body"].replace("\n","\n> "))
 		del posts[:]
 		reddit.edit_wiki_page(subreddit=subreddit_name, page=page, content=newcontent, reason='')
 		print(time.strftime('%H:%M:%S Stalking complete', time.localtime()))

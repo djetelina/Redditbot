@@ -98,3 +98,10 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.png
+*.gif
+*.sublime-project
+*.sublime-workspace
+plugins/emoti/icon_map.txt
+plugins/emoti/icons_png.css
+plugins/emoti/icons_gif.css

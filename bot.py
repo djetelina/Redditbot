@@ -12,10 +12,10 @@ import plugins.spritesheeter as spritesheeter
 def main():
 
 	# Choose plugins to run
-	print "\n\nWelcome to /r/scrolls bot. Choose your weapon:\n"
+	print "\nWelcome to /r/scrolls bot. Choose your weapon:\n"
 	print "=============================================="
 	print "1: Sidebar updates and mojangsta stalking."
-	print "2: create emoticon spritesheet."
+	print "2: Create emoticon spritesheet."
 	print "==============================================\n"
 	whattodo = raw_input("What will it be?\n")
 
@@ -41,8 +41,9 @@ def main():
 			time.sleep(1)
 
 	elif whattodo == "2":
-		print "You chose to create emoticon spritesheet"
+		print "You chose to create emoticon spritesheet, let's begin."
 		spritesheeter.emoti()
+		main()
 
 	else:
 		print "Let's try that again."
