@@ -52,7 +52,7 @@ def emoti():
 
 
     cssTemplate = '''a[href="/%s"] {
-        background-position: 0px %dpx;
+        background-position: 0px -%dpx;
     }
     '''
 
