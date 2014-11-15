@@ -6,7 +6,7 @@
 subreddit_name = "Scrolls"
 subreddit_id = "t5_2scq0"
 page = "stalker"
-devs = ["MansOlson","carnalizer","BomuBoi","jonkagstrom","poipoichen", "SeeMeScrollin", "Atmaz", "Marc_IRL", "jeb_", "aronnie"]
+devs = ["MansOlson","carnalizer","BomuBoi","jonkagstrom","poipoichen", "SeeMeScrollin", "Atmaz", "Marc_IRL", "jeb_", "aronnie", "krisjelbring"]
 newcontent = ""
 
 import json
