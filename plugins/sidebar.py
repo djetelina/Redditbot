@@ -79,7 +79,7 @@ def streams(username, password):
                 log.write("{\"time\":\"" + (time.strftime('%d.%m.%Y %H:%M:%S', time.localtime())) + "\",\"streamer\":\"" + '%s' % (name) + "\"},\n")
         else:
             # streams = waypoints + "\n\n**Live streams**\n\n"
-            streams = "\n\n**Live streams**\n\n"
+            streams = "\n\n**Live streams**\n\nNo streams online."
 
         parts[1] = streams
 
