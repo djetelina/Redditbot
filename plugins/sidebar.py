@@ -46,6 +46,7 @@ def streams(username, password):
     abs_file_path = os.path.join(script_dir, rel_path)
     log = open(abs_file_path, "a")
 
+    print("--------------------")
     print(time.strftime('%H:%M:%S Initiating live streams update', time.localtime()))
 
     # between 1. and 2. sentinel
@@ -96,6 +97,7 @@ def streams(username, password):
 
 def ladder(username, password):
     # between 3. and 4. sentinel
+    print("--------------------")
     print(time.strftime('%H:%M:%S Initiating ladder update', time.localtime()))
     try:
         login(username, password)

@@ -29,8 +29,9 @@ def login(username, password):
 	reddit.login(username, password)
  
 def stalk(username, password):
-	print(time.strftime('%H:%M:%S Initiating stalking', time.localtime()))
-	try:
+    print("--------------------")
+    print(time.strftime('%H:%M:%S Initiating stalking', time.localtime()))
+    try:
 		login(username, password)
 		for dev in devs:
 			time.sleep(10)
@@ -56,16 +57,15 @@ def stalk(username, password):
 		del posts[:]
 		reddit.edit_wiki_page(subreddit=subreddit_name, page=page, content=newcontent, reason='')
 		print(time.strftime('%H:%M:%S Stalking complete', time.localtime()))
-	except Exception as e:
+    except Exception as e:
 		print("Error stalking: " + str(e))
 
 def stalker(username, password):
 
-	schedule.every().hour.do(stalk(username, password))
+    schedule.every().hour.do(stalk(username, password)) 
+    stalk(username, password)
 
-	stalk(username, password)
-
-	while True:
+    while True:
 		schedule.run_pending()
 		time.sleep(1)
 
