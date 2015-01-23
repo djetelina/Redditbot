@@ -33,8 +33,8 @@ while True:
             #Add this post to the already done list
             already_done.append(submission.id)   
             pass
-        print "Sleeping"
-        time.sleep(600)
-        print "Done sleeping"
+    print "Sleeping"
+    time.sleep(600)
+    print "Done sleeping"
 
     
