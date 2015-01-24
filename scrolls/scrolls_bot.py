@@ -11,7 +11,7 @@ r.login()
 already_done = []
 
 #Words the bot will look for
-prawWords = ['test', 'second tes t'] #add phrases or words here
+prawWords = ['I\'m new to scrolls'] #add phrases or words here
 #Opens the post file and reads it into a var
 post_file = open("scrolls_bot_reply.md", "r+")
 post_text = post_file.read(2331) #replace with byte count from file
