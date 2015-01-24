@@ -50,11 +50,6 @@ def main():
 		spritesheeter.emoti()
 		main()
 
-	elif whattodo == "3":
-		username = raw_input("Please enter reddit username: ")
-   
-		password = raw_input("Please enter reddit password: ")
-		newbie_bot.reply(username, password, already_done)
 	else:
 		print "Let's try that again."
 		main()
