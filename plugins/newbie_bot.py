@@ -1,7 +1,7 @@
 #Newbie Bot created by pizzamanzoo
 import time
 import praw 
-
+import os
 
 def reply(username, password, already_done):
     #Set the message for reddit
@@ -14,11 +14,15 @@ def reply(username, password, already_done):
     #Words the bot will look for
     prawWords = ['/u/ScrollsBot'] #add phrases or words here
 
+    script_dir = os.path.dirname(__file__)
+    rel_path = "scrolls_bot_reply.md"
+    abs_file_path = os.path.join(script_dir, rel_path)
+
     #Opens the post file and reads it into a var
-    post_file = open("scrolls_bot_reply.md", "r+")
+    post_file = open(abs_file_path, "r+")
     post_text = post_file.read(2331) #replace with byte count from file
 
-    print "time here: Inititing Newbie Bot" 
+    print(time.strftime("%H:%M:%S Inititing Newbie Bot")) 
 
     #Set the subreddit name here
     subreddit = r.get_subreddit('scrolls')
