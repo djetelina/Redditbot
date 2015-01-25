@@ -20,7 +20,7 @@ def reply(username, password, already_done):
 
     #Opens the post file and reads it into a var
     post_file = open(abs_file_path, "r+")
-    post_text = post_file.read(2331) #replace with byte count from file
+    post_text = post_file.read(2326) #replace with byte count from file
 
     print(time.strftime("%H:%M:%S Inititing Newbie Bot")) 
 

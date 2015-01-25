@@ -32,7 +32,8 @@ More useful links are compiled in [Welcome to Scrolls - Surival Guide](http://ww
 I am a bot, but feel free to reply to me. 
 
 If there is an issue with me or you are interested in contributing,
-my github is [here](https://github.com/fahlmant/reddit-bot/tree/master/scrolls).<br>
-Once there you can fork the repo and submit pull requests.<br>
+my github is [here](https://github.com/fahlmant/reddit-bot/tree/master/scrolls). Once there you can fork the repo and submit pull requests.
+
+
 Alternatively you can send a quick message to /u/pizzamanzoo.
 
