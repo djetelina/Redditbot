@@ -12,7 +12,8 @@ import plugins.spritesheeter as spritesheeter
 
 def main():
 	
-	already_done = []
+	posts_done = []
+	comments_done = []
 	# Choose plugins to run
 	print "\nWelcome to /r/scrolls bot. Choose your weapon:\n"
 	print "=============================================="
@@ -30,7 +31,7 @@ def main():
 		schedule.every(5).minutes.do(lambda: sidebar.streams(username, password))
 		schedule.every().hour.do(lambda: sidebar.ladder(username, password))
 		schedule.every().hour.do(lambda: stalker.stalk(username, password))
-		schedule.every(10).minutes.do(lambda: newbie_bot.reply(username, password, already_done))
+		schedule.every(10).minutes.do(lambda: newbie_bot.reply(username, password, comments_done, posts_done))
 
 		# on the startup do them both and THEN start counting time
 		stalker.stalk(username, password)
@@ -38,7 +39,7 @@ def main():
 		print("Waiting 10s for Reddit to update its description, this will only happen once.")
 		time.sleep(10)
 		sidebar.ladder(username, password)
-		newbie_bot.reply(username, password, already_done)
+		newbie_bot.reply(username, password, comments_done, posts_done)
 
 
 		while True:
