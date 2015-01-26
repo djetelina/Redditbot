@@ -41,10 +41,6 @@ def update_description(new_description):
 
 
 def streams(username, password):
-    script_dir = os.path.dirname(__file__)
-    rel_path = "logs/streamers.txt"
-    abs_file_path = os.path.join(script_dir, rel_path)
-    log = open(abs_file_path, "a")
 
     print(time.strftime('%H:%M:%S Initiating live streams update', time.localtime()))
 
@@ -76,7 +72,6 @@ def streams(username, password):
                 url  = channel["url"]
                 streams += " * [%s (%s)](%s)\n" % (name,viewers,url)
                 print("%s with %s viewers" % (name,viewers))
-                log.write("{\"time\":\"" + (time.strftime('%d.%m.%Y %H:%M:%S', time.localtime())) + "\",\"streamer\":\"" + '%s' % (name) + "\"},\n")
         else:
             # streams = waypoints + "\n\n**Live streams**\n\n"
             streams = "\n\n**Live streams**\n\nNo streams online."
