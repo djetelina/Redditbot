@@ -27,7 +27,6 @@ def reply(username, password, comments_done, posts_done):
     #Set the subreddit name here
     subreddit = r.get_subreddit('scrolls')
     all_comments = subreddit.get_comments()
-    flag = 1
 
     for comment in all_comments:  
         if comment.id in comments_done:
