@@ -29,15 +29,13 @@ def reply(username, password, comments_done, posts_done):
     all_comments = subreddit.get_comments()
     flag = 1
 
-    if flag == 1:
-        for comment in all_comments:  
-            if comment.id in comments_done:
-                flag = 0
-                break
-            com_text = comment.body
-            has_praw = any(string in com_text for string in prawWords)
-            if has_praw: 
-                if comment.submission.id not in posts_done:
-                    comment.submission.add_comment(post_text)
-                    posts_done.append(comment.submission.id)
-            comments_done.append(comment.id)
+    for comment in all_comments:  
+        if comment.id in comments_done:
+            break
+        com_text = comment.body
+        has_praw = any(string in com_text for string in prawWords)
+        if has_praw: 
+            if comment.submission.id not in posts_done:
+                comment.submission.add_comment(post_text)
+                posts_done.append(comment.submission.id)
+        comments_done.append(comment.id)
